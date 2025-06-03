@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiTimer</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+<body>
+    <div class="timer-window" id="timerWindow">
+        <div class="header" id="header">
+            <div class="header-left">
+                <button id="toggle-mode" title="Basculer mode">↔️</button>
+                <button id="toggle-lock" title="Verrouiller">🔓</button>
+            </div>
+            <div class="header-right">
+                <button id="close-timer" title="Fermer">×</button>
+            </div>
+        </div>
+        
+        <div class="timer-content">
+            <div class="time-display" id="timeDisplay">00:00:00</div>
+            
+            <div class="countdown-input" id="countdownInput" style="display: none;">
+                <input type="number" id="hours" min="0" max="23" value="0" placeholder="H">
+                <span>:</span>
+                <input type="number" id="minutes" min="0" max="59" value="0" placeholder="M">
+                <span>:</span>
+                <input type="number" id="seconds" min="0" max="59" value="0" placeholder="S">
+            </div>
+            
+            <div class="controls">
+                <button id="start-stop" title="Démarrer/Arrêter">▶️</button>
+                <button id="reset" title="Reset">🔄</button>
+                <button id="export" title="Exporter">📤</button>
+                <button id="import" title="Importer">📥</button>
+            </div>
+        </div>
+        
+        <div class="resize-handle" id="resizeHandle"></div>
+    </div>
+    
+    <input type="file" id="importFile" accept=".json" style="display: none;">
+    <script src="timer.js"></script>
+</body>
+</html>

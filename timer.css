@@ -1,0 +1,209 @@
+
+/* Styles pour MultiTimerPopup */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: transparent;
+}
+
+.timer-window {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: #fffcc;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-width: 180px;
+    min-height: 120px;
+}
+
+.timer-window.locked {
+    pointer-events: none;
+}
+
+.timer-window.locked .header,
+.timer-window.locked .resize-handle {
+    pointer-events: auto;
+}
+
+.header {
+    height: 28px;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    user-select: none;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    gap: 4px;
+}
+
+.header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #333;
+}
+
+.header button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.timer-content {
+    padding: 8px;
+    text-align: center;
+    height: calc(100% - 28px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-display {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 8px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.countdown-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin: 4px 0;
+}
+
+.countdown-input input {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.countdown-input span {
+    font-weight: bold;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+.controls button:hover {
+    background: #e0e0e0;
+}
+
+.controls button:active {
+    background: #d0d0d0;
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    cursor: nw-resize;
+    background: transparent;
+}
+
+.resize-handle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Mode verrouillé */
+.timer-window.locked .resize-handle {
+    display: none;
+}
+
+.timer-window.locked .header {
+    cursor: default;
+}
+
+/* Responsive design pour petites fenêtres */
+@media (max-width: 180px) {
+    .time-display {
+        font-size: 14px;
+    }
+    
+    .controls button {
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+}
+
+@media (max-height: 120px) {
+    .timer-content {
+        padding: 4px;
+    }
+    
+    .time-display {
+        margin: 4px 0;
+    }
+}
+
+/* Animation pour les transitions */
+.timer-window {
+    transition: box-shadow 0.2s ease;
+}
+
+.timer-window:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Style pour le mode compte à rebours actif */
+.countdown-mode .time-display {
+    color: #d73027;
+}
+
+.countdown-mode.expired .time-display {
+    color: #ff0000;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Style pour le chronomètre */
+.chronometre-mode .time-display {
+    color: #2c7fb8;
+}

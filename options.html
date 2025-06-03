@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiTimerPopup - Options</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="options-container">
+        <header>
+            <h1>MultiTimerPopup - Configuration</h1>
+            <p>Personnalisez votre expérience avec les timers popup</p>
+        </header>
+        
+        <main>
+            <section class="option-group">
+                <h2>Sons de notification</h2>
+                <div class="sound-options">
+                    <label>
+                        <input type="radio" name="notification-sound" value="beep" checked>
+                        Bip classique
+                        <button class="preview-sound" data-sound="beep">🔊</button>
+                    </label>
+                    <label>
+                        <input type="radio" name="notification-sound" value="chime">
+                        Carillon
+                        <button class="preview-sound" data-sound="chime">🔊</button>
+                    </label>
+                    <label>
+                        <input type="radio" name="notification-sound" value="bell">
+                        Cloche
+                        <button class="preview-sound" data-sound="bell">🔊</button>
+                    </label>
+                </div>
+            </section>
+            
+            <section class="option-group">
+                <h2>Comportement des timers</h2>
+                <div class="behavior-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="auto-focus" checked>
+                        Mettre automatiquement au premier plan les timers expirés
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="persistent-notifications" checked>
+                        Notifications persistantes (restent affichées jusqu'au clic)
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="sound-enabled" checked>
+                        Activer les sons de notification
+                    </label>
+                </div>
+            </section>
+            
+            <section class="option-group">
+                <h2>Interface</h2>
+                <div class="ui-options">
+                    <label>
+                        Thème par défaut:
+                        <select id="default-theme">
+                            <option value="light">Clair</option>
+                            <option value="dark">Sombre</option>
+                            <option value="auto">Automatique</option>
+                        </select>
+                    </label>
+                    <label>
+                        Transparence des fenêtres:
+                        <input type="range" id="window-opacity" min="70" max="100" value="100">
+                        <span id="opacity-value">100%</span>
+                    </label>
+                </div>
+            </section>
+            
+            <section class="option-group">
+                <h2>Gestion des données</h2>
+                <div class="data-management">
+                    <button id="export-all" class="action-button">
+                        📤 Exporter tous les timers
+                    </button>
+                    <button id="import-timers" class="action-button">
+                        📥 Importer des timers
+                    </button>
+                    <button id="clear-data" class="action-button danger">
+                        🗑️ Effacer toutes les données
+                    </button>
+                </div>
+            </section>
+            
+            <section class="option-group">
+                <h2>Raccourcis clavier</h2>
+                <div class="shortcuts-info">
+                    <div class="shortcut">
+                        <span class="key">Ctrl + Shift + T</span>
+                        <span class="description">Créer un nouveau timer</span>
+                    </div>
+                    <div class="shortcut">
+                        <span class="key">Échap</span>
+                        <span class="description">Fermer le timer actuel</span>
+                    </div>
+                    <div class="shortcut">
+                        <span class="key">Espace</span>
+                        <span class="description">Démarrer/Arrêter le timer</span>
+                    </div>
+                    <div class="shortcut">
+                        <span class="key">R</span>
+                        <span class="description">Reset du timer</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="option-group">
+                <h2>À propos</h2>
+                <div class="about-info">
+                    <p><strong>MultiTimerPopup v1.0.0</strong></p>
+                    <p>Extension Chrome pour la gestion de timers multiples</p>
+                    <p>Limite: 7 timers simultanés maximum</p>
+                    <p>Compatible avec Chrome 88+</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <button id="save-options" class="save-button">Sauvegarder les paramètres</button>
+            <button id="reset-options" class="reset-button">Réinitialiser</button>
+        </footer>
+    </div>
+    
+    <input type="file" id="import-file" accept=".json" style="display: none;">
+    <script src="options.js"></script>
+</body>
+</html>

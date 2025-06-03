@@ -352,7 +352,7 @@ async function handleTimerMessage(message, sender, sendResponse) {
                 readOnly
                 className="font-mono text-xs h-80"
               />
-            </CardContent>
+            </TabsContent>
             
             <TabsContent value="instructions" className="space-y-4">
               <div className="space-y-4">
